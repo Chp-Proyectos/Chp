@@ -18,25 +18,21 @@
     }
     .frame-container {
       position: relative;
-      width: 450px;
-      height: 180px;
+      display: inline-block;
       margin: 0 auto;
     }
     .spotify-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
+      position: relative;
       z-index: 2;
+      width: 450px;
+      height: 180px;
+      border-radius: 12px;
     }
     .frame-image {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: -10px; /* sube la imagen ligeramente */
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1;
       pointer-events: none;
     }
@@ -57,8 +53,8 @@
   <h1>¡Hola Mundo desde GitHub Pages!</h1>
   <p>Esta es una página web simple hecha solo con HTML.</p>
   <p><a href="https://github.com/">Visita GitHub</a></p>
-  <div style="position: relative; width: 450px; height: 180px; margin: 0 auto;">
-     <img src="spotify.png" alt="Marco" class="frame-image">
+  <div class="frame-container">
+    <img src="spotify.png" alt="Marco" class="frame-image">
     <iframe class="spotify-frame" 
       src="https://open.spotify.com/embed/album/2B4b9fAl8qAziLWWYRUYOI?utm_source=generator&theme=0" 
       frameborder="0" allowfullscreen="" 
