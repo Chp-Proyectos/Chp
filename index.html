@@ -11,6 +11,34 @@
       color: #333;
       text-align: center;
       padding: 50px;
+           background-color: #000; /* o el color que elijas */
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .frame-container {
+      position: relative;
+      width: 450px;
+      height: 180px;
+      margin: 0 auto;
+    }
+    .spotify-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      z-index: 2;
+    }
+    .frame-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
     }
     h1 {
       color: #007acc;
@@ -30,13 +58,13 @@
   <p>Esta es una página web simple hecha solo con HTML.</p>
   <p><a href="https://github.com/">Visita GitHub</a></p>
   <div style="position: relative; width: 450px; height: 180px; margin: 0 auto;">
-     <img src="spotify.png" alt="Marco" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-     <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; z-index: 2;"
+     <img src="spotify.png" alt="Marco" class="frame-image">
+    <iframe class="spotify-frame" 
       src="https://open.spotify.com/embed/album/2B4b9fAl8qAziLWWYRUYOI?utm_source=generator&theme=0" 
       frameborder="0" allowfullscreen="" 
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
       loading="lazy">
-     </iframe>
+    </iframe>
   </div>
 </body>
 </html>
