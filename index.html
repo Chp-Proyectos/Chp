@@ -7,15 +7,13 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #87abe6;
-      color: #333;
-      text-align: center;
-      padding: 50px;
-           background-color: #000; /* o el color que elijas */
+      background-color: #000;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 50px;
+      position: relative; /* necesario para posicionar elementos hijos de forma absoluta */
     }
+
     .spotify-frame {
       position: relative;
       z-index: 2;
@@ -23,40 +21,44 @@
       height: 180px;
       border-radius: 12px;
     }
+
     .frame-image {
       position: absolute;
-      top: -10px; /* sube la imagen ligeramente */
+      top: calc(50% - 100px); /* ajusta este valor según la altura de tu imagen */
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -30px); /* -30px lo empuja visualmente arriba del iframe */
       z-index: 1;
       pointer-events: none;
     }
+
     h1 {
       color: #007acc;
     }
+
     a {
       color: #007acc;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
-    
   </style>
 </head>
 <body>
   <h1>¡Hola Mundo desde GitHub Pages!</h1>
   <p>Esta es una página web simple hecha solo con HTML.</p>
   <p><a href="https://github.com/">Visita GitHub</a></p>
-  <div class="frame-container">
-    <img src="spotify.png" alt="Marco" class="frame-image">
-    <iframe class="spotify-frame" 
-      src="https://open.spotify.com/embed/album/2B4b9fAl8qAziLWWYRUYOI?utm_source=generator&theme=0" 
-      frameborder="0" allowfullscreen=""
-      
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy">
-    </iframe>
-  </div>
+
+  <!-- Marco -->
+  <img src="spotify.png" alt="Marco decorativo" class="frame-image">
+
+  <!-- Reproductor -->
+  <iframe class="spotify-frame" 
+    src="https://open.spotify.com/embed/album/2B4b9fAl8qAziLWWYRUYOI?utm_source=generator&theme=0" 
+    frameborder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
 </body>
 </html>
