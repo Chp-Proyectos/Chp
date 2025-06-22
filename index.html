@@ -5,21 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mi Primera Página en GitHub</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+
+@font-face {
+  font-family: 'candybeans';
+  src: url('Candy Beans.otf') format('opentype');
+}    
+
+body {
+      font-family: candybeans, sans-serif;
       background-color: #000;
-      color: white;
+      color: #A9C2E1;
       text-align: center;
       padding: 50px;
       position: relative;
       animation: cambiarFondo 5s infinite alternate;
     }
 
-#reloj {
+#reloj { 
   margin-top: -30px;
   font-size: 65px;
-  font-weight: bold;
-  color: #ffffff;
   padding: 20px 0;
 }
 
@@ -105,8 +109,13 @@
 </head>
 <body>
 
+<!-- Fondo-->
+<img src="fondo.png" alt="Decoración de fondo"
+     style="position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            z-index: 0; pointer-events: none;">
+
 <!-- Reloj-->
-  <div id="reloj"></div>
+   <div id="reloj" style="position: relative; z-index: 1;">00:00 AM</div>
   <p>Esta es una página web simple hecha solo con HTML.</p>
 
 <script>
@@ -133,7 +142,7 @@
   <div class="spotify-container">
     
     <img src="spotify.png" alt="Marco decorativo"
-     style="position: absolute; top: -11px; left: 50%; transform: translateX(-50%); z-index: 1; pointer-events: none;">
+       style="position: absolute; top: -11px; left: 50%; transform: translateX(-50%); z-index: 2; pointer-events: none;">
 
     <iframe class="spotify-frame" 
       src="https://open.spotify.com/embed/album/2B4b9fAl8qAziLWWYRUYOI?utm_source=generator&theme=0" 
