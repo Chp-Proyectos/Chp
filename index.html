@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>✧⋆｡ﾟ⊹Chp⋆｡° 𓇼₊˚</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <style>
+
+@font-face {
+  font-family: 'candybeans';
+  src: url('Candy Beans.otf') format('opentype');
+}
+
+body {
+  font-family: candybeans, sans-serif;
+  background-color: #000;
+  color: #A9C2E1;
+  text-align: center;
+  padding: 50px;
+  position: relative;
+  animation: cambiarFondo 5s infinite alternate;
+}
+
+.navbar {
+  position: fixed;
+  top: 4px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  z-index: 20;
+}
+
+    .nav-link {
+      font-size: 22px; 
+      color: #ffffff;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      border-bottom-color: white;
+    }
+
+#reloj {
+  margin-top: -65px;
+  margin-left: 400px;
+  font-size: 40px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* Clima */
+#weather {
+  position: absolute;
+  top: -9px;
+  right: 210px;
+  color: white;
+  font-family: candybeans, sans-serif;
+  z-index: 10;
+}
+
+/* Spotify */
+.spotify-container {
+  position: fixed;
+  top: 125px;
+  right: 40px;
+  width: 450px;
+  height: 150px;
+  z-index: 2;
+}
+
+.spotify-frame {
+  position: relative;
+  top: 36px;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+/* Drive */
+.drive-container {
+  position: fixed;
+  top: 230px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 50px;
+}
+
+.drive-icon {
+  z-index: 10;
+  display: inline-block;
+}
+
+.drive-icon img {
+  display: block;
+  height: auto;
+}
+
+.drive-icon:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Redes */
+.instagram-icon {
+  position: fixed;
+  top: 3px;
+  right: 20px;
+  z-index: 10;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.instagram-icon img {
+  display: block;
+  height: auto;
+}
+
+.instagram-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Íconos adicionales */
+.icon-hover:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+  </style>
+</head>
+<body>
+
+<!-- Fondo -->
+<img src="ImgPerfil/fondo.png" alt="Decoración de fondo"
+  style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+         z-index: 0; pointer-events: none;">
+
+<!-- Menú -->
+<nav class="navbar">
+  <a href="index.html" class="nav-link active">Inicio</a>
+  <a href="perfil.html" class="nav-link">Perfil</a>
+</nav>
+
+<!-- Reloj -->
+<div id="reloj">00:00 AM</div>
+
+<!-- Clima -->
+<div id="weather">Cargando clima...</div>
+
+<!-- Spotify -->
+<div class="spotify-container">
+  <img src="spotify.png" alt="Marco decorativo"
+       style="position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+              z-index: 2; pointer-events: none;">
+  <iframe class="spotify-frame"
+    src="https://open.spotify.com/embed/album/2B4b9fAl8qAziLWWYRUYOI?utm_source=generator&theme=0"
+    frameborder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- Carpetas Drive -->
+<div class="drive-container">
+  <a href="https://drive.google.com/drive/u/1/folders/1mIAKODmwPCTVOQzWBuvil86_V91LagFA" target="_blank" class="drive-icon" title="Google Drive1">
+    <img src="carpeta1.png" alt="Drive1"/>
+  </a>
+  <a href="https://drive.google.com/drive/u/1/folders/1XO442B2OOWeEol--wXPWNGs1FLOI3XDd" target="_blank" class="drive-icon" title="Google Drive2">
+    <img src="carpeta2.png" alt="Drive2"/>
+  </a>
+  <a href="https://drive.google.com/drive/u/1/folders/1dfKPzoKK73_q9yN2ogNUAjKTYmqoA_7L" target="_blank" class="drive-icon" title="Google Drive3">
+    <img src="carpeta3.png" alt="Drive3"/>
+  </a>
+  <a href="https://drive.google.com/drive/u/1/folders/1a8ZJxp4Bgl2AJTy4827BJr_eT6ESoVkY" target="_blank" class="drive-icon" title="Google Drive4">
+    <img src="carpeta4.png" alt="Drive4"/>
+  </a>
+</div>
+
+<!-- CV -->
+<a href="PELICULA.pdf" download>
+  <img src="cv.png" alt="Descargar PDF"
+       style="position: fixed; bottom: 30px; left: 120px; cursor: pointer;">
+</a>
+
+<!-- Instagram -->
+<a href="https://www.instagram.com/ms_chp/" target="_blank" class="instagram-icon icon-hover" title="Instagram">
+  <img src="Ig_icon.png" alt="Instagram"/>
+</a>
+
+<!-- Artfight -->
+<a href="https://artfight.net/~Chp" target="_blank" class="instagram-icon icon-hover" title="Artfight" style="right: 80px;">
+  <img src="Af_icon.png" alt="Artfight"/>
+</a>
+
+<!-- Youtube -->
+<a href="https://www.youtube.com/@Chp-1104/featured" target="_blank" class="instagram-icon icon-hover" title="Youtube" style="right: 140px;">
+  <img src="Yt_icon.png" alt="Youtube"/>
+</a>
+
+<audio id="clickSound" src="Sound/open.wav" preload="auto"></audio>
+
+<script>
+  // Reloj
+  function actualizarReloj() {
+    const ahora = new Date();
+    let horas = ahora.getHours();
+    let minutos = ahora.getMinutes();
+    const ampm = horas >= 12 ? 'PM' : 'AM';
+    horas = horas % 12 || 12;
+    minutos = minutos < 10 ? '0' + minutos : minutos;
+    document.getElementById('reloj').textContent = `${horas}:${minutos} ${ampm}`;
+  }
+  setInterval(actualizarReloj, 1000);
+  actualizarReloj();
+
+  // Clima
+  const apiKey = 'ee2e78cced3b9710fbdf4ad42ef47a9a';
+  const ciudad = 'Ciudad de México';
+
+  async function obtenerClima() {
+    try {
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`);
+      const datos = await res.json();
+      const temp = Math.round(datos.main.temp);
+      const desc = datos.weather[0].description;
+      const icono = datos.weather[0].icon;
+      document.getElementById('weather').innerHTML = `
+        <img src="https://openweathermap.org/img/wn/${icono}.png" alt="${desc}" style="vertical-align: middle;">
+        ${temp}°C, ${desc}`;
+    } catch (error) {
+      document.getElementById('weather').textContent = 'No se pudo cargar el clima';
+    }
+  }
+
+  obtenerClima();
+
+  const clickSound = document.getElementById('clickSound');
+
+  function reproducirSonido() {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  }
+
+  document.querySelectorAll('.drive-icon').forEach(el => {
+    el.addEventListener('click', reproducirSonido);
+  });
+
+</script>
+</body>
+</html>

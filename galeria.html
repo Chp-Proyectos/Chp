@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>✧⋆｡ﾟ⊹Chp⋆｡° 𓇼₊˚</title>
+  <link rel="icon" href="icon.png">
+  <style>
+    @font-face {
+      font-family: 'candybeans';
+      src: url('Candy Beans.otf') format('opentype');
+    }
+
+    body {
+      margin: 0; padding: 50px;
+      font-family: candybeans, sans-serif;
+      background: #262673;
+      color: #A9C2E1;
+      position: relative;
+      overflow-x: hidden;
+      animation: cambiarFondo 5s infinite alternate;
+    }
+
+.navbar {
+  position: fixed;
+  top: 4px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  z-index: 20;
+}
+
+    .nav-link {
+      font-size: 22px; 
+      color: #ffffff;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      border-bottom-color: white;
+    }
+
+#reloj {
+  position: fixed;
+  top: -4px;
+  right: 380px;
+  font-size: 40px;
+  color: white;
+  z-index: 20;
+}
+
+.instagram-icon {
+  position: fixed;
+  top: 590px;
+  z-index: 10;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+    .instagram-icon:hover {
+      transform: scale(1.1);
+    }
+    .gallery {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 75px;
+      z-index: 1;
+    }
+    .gallery img {
+      width: 200px;
+      height: 400px;
+      object-fit: cover;
+      border: 5px solid white;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .expanded {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: auto !important;
+      height: auto !important;
+      max-width: 90vw !important;
+      max-height: 90vh !important;
+      z-index: 999 !important;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<img src="ImgPerfil/fondo.png" alt="Decoración de fondo" style="position: absolute; top: -7px; left: 50%; transform: translateX(-50%); z-index: 0; pointer-events: none;">
+  
+<div class="navbar">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="perfil.html" class="nav-link">Perfil</a>
+    <a href="galeria.html" class="nav-link active">Galería</a>
+  </div>
+
+  <div id="reloj">00:00 AM</div>
+
+<!-- Redes sociales -->
+
+<div class="instagram-icon" style="left: 120px;">
+  <a href="https://artfight.net/~Chp" target="_blank" title="Artfight" class="sonido-click">
+    <img src="Af_icon.png" alt="Artfight">
+  </a>
+</div>
+
+<div class="instagram-icon" style="left: 177px;">
+  <a href="https://www.youtube.com/@Chp-1104/featured" target="_blank" title="Youtube" class="sonido-click">
+    <img src="Yt_icon.png" alt="Youtube">
+  </a>
+</div> 
+
+<div class="instagram-icon" style="left: 250px;">
+  <a href="https://www.instagram.com/ms_chp/" target="_blank" title="Instagram" class="sonido-click">
+    <img src="Ig_icon.png" alt="Instagram"/>
+  </a>
+</div>
+
+<div id="weather" style="position: absolute; top: -1px; right: 178px; color: white; font-family: candybeans, sans-serif;">Cargando clima...</div>
+
+  <div class="gallery">
+    <img src="https://images.artfight.net/attack/Kg8VlW3Pol283VOnebgdKbC9SLRNVnJHZAYzd2rl3XUCO0MjB5iokosSCOwp.png?t=1751666579" alt="Dibujo 1" class="sonido-click">
+    <img src="https://images.artfight.net/attack/R1SCZeTRk6VcKl0HiWbbaHZ0oXf3jPaXNnqrm4mHAkqUpvWYljGg09FnHkvj.png?t=1721935047" alt="Dibujo 2" class="sonido-click">
+    <img src="https://images.artfight.net/attack/XmOUIJ8jtwkoVjcHCmc9pcYGvjZOOTb4XgYt2JJkzM3fEzkJVrKJZ593G5bj.png?t=1721790028" alt="Dibujo 3" class="sonido-click">
+    <img src="https://images.artfight.net/attack/S2r2AgiVzMYfZi1izgTrO9db0XbeHLTBSVj8w51A2sujByKjM0eFtqa5Aqb8.jpg?t=1689132421" alt="Dibujo 4" class="sonido-click">
+    <img src="https://pbs.twimg.com/media/Gs4T88fWkAMxzUr?format=jpg&name=large" alt="Dibujo 5" class="sonido-click">
+  </div>
+
+  <audio id="clickSound" src="Sound/open.wav" preload="auto"></audio>
+
+  <script>
+    // Reloj
+function actualizarReloj() {
+  const ahora = new Date();
+  let horas = ahora.getHours();
+  let minutos = ahora.getMinutes();
+  const ampm = horas >= 12 ? 'PM' : 'AM';
+  horas = horas % 12 || 12;
+  minutos = minutos < 10 ? '0' + minutos : minutos;
+  document.getElementById('reloj').textContent = `${horas}:${minutos} ${ampm}`;
+}
+setInterval(actualizarReloj, 1000);
+actualizarReloj();
+
+//Clima
+const apiKey = 'ee2e78cced3b9710fbdf4ad42ef47a9a';
+const ciudad = 'Ciudad de México';
+async function obtenerClima() {
+  try {
+    const respuesta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`);
+    const datos = await respuesta.json();
+    const temp = Math.round(datos.main.temp);
+    const descripcion = datos.weather[0].description;
+    const icono = datos.weather[0].icon;
+    document.getElementById('weather').innerHTML = `<img src="https://openweathermap.org/img/wn/${icono}.png" alt="${descripcion}" style="vertical-align: middle;"> ${temp}°C, ${descripcion}`;
+  } catch {
+    document.getElementById('weather').innerText = 'No se pudo cargar el clima';
+  }
+}
+obtenerClima();
+
+    // Sonido
+    const clickSound = document.getElementById('clickSound');
+    document.querySelectorAll('.sonido-click').forEach(el => {
+      el.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      });
+    });
+
+    // Expansión de imágenes
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        if (img.classList.contains('expanded')) {
+          img.classList.remove('expanded');
+        } else {
+          img.classList.add('expanded');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

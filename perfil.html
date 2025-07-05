@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>✧⋆｡ﾟ⊹Chp⋆｡° 𓇼₊˚</title>
+  <link rel="icon" href="icon.png" type="image/png">
+<style>
+@font-face {
+  font-family: 'candybeans';
+  src: url('Candy Beans.otf') format('opentype');
+}
+
+body {
+  font-family: candybeans, sans-serif;
+  background-color: #000;
+  color: #A9C2E1;
+  text-align: center;
+  padding: 50px;
+  position: relative;
+  animation: cambiarFondo 5s infinite alternate;
+}
+
+.navbar {
+  position: fixed;
+  top: 4px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  z-index: 20;
+}
+
+    .nav-link {
+      font-size: 22px; 
+      color: #ffffff;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      border-bottom-color: white;
+    }
+
+#reloj {
+  position: fixed;
+  top: -4px;
+  right: 380px;
+  font-size: 40px;
+  color: white;
+  z-index: 20;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-70vw); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.descripcion-icon {
+  position: fixed;
+  top: 74px;
+  left: 0px;
+  z-index: 1;
+  display: inline-block;
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+.instagram-icon {
+  position: fixed;
+  top: 590px;
+  z-index: 10;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.instagram-icon:hover {
+  transform: scale(1.1);
+}
+
+@keyframes girarLento {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.rotating-center-img {
+  position: fixed;
+  top: 50%;
+  right: 80px;
+  z-index: 0;
+  pointer-events: none;
+  animation: girarLento 55s linear infinite;
+  transform: translate(-50%);
+}
+</style>
+</head>
+<body>
+
+<img src="ImgPerfil/fondo.png" alt="Decoración de fondo" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); z-index: 0; pointer-events: none;">
+
+<nav class="navbar">
+  <a href="index.html" class="nav-link nav-sound">Inicio</a>
+  <a href="perfil.html" class="nav-link nav-sound">Perfil</a>
+  <a href="galeria.html" class="nav-link nav-sound">Galería</a>
+</nav>
+
+ <div id="reloj">00:00 AM</div>
+
+<div class="descripcion-icon">
+  <img src="ImgPerfil/descripcion.png" alt="Descripción" class="icon-hover" title="Descripción">
+</div>
+
+<img src="ImgPerfil/character.png" alt="Chp" style="position: fixed; top: 20px; left: 450px; z-index: 1; display: block;">
+<img src="ImgPerfil/paleta.png" alt="Pallete color" class="icon-hover" style="position: fixed; top: 60px; right: 220px; z-index: 2">
+<img src="ImgPerfil/info1.png" alt="Contacto" title="Contacto" class="icon-hover" id="contactoIcon" style="position: fixed; top: 450px; right: 185px; z-index: 2">
+<img src="ImgPerfil/correo.png" alt="Correo" id="correoImg" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 30; display: none; height: auto;">
+<img src="ImgPerfil/circulo.png" alt="Decoración giratoria" class="rotating-center-img">
+
+<!-- Redes sociales -->
+
+<div class="instagram-icon" style="left: 120px;">
+  <a href="https://artfight.net/~Chp" target="_blank" title="Artfight" class="sonido-click">
+    <img src="Af_icon.png" alt="Artfight">
+  </a>
+</div>
+
+<div class="instagram-icon" style="left: 177px;">
+  <a href="https://www.youtube.com/@Chp-1104/featured" target="_blank" title="Youtube" class="sonido-click">
+    <img src="Yt_icon.png" alt="Youtube">
+  </a>
+</div>
+
+<div class="instagram-icon" style="left: 250px;">
+  <a href="https://www.instagram.com/ms_chp/" target="_blank" title="Instagram" class="sonido-click">
+    <img src="Ig_icon.png" alt="Instagram"/>
+  </a>
+</div>
+
+<div id="weather" style="position: absolute; top: -9px; right: 170px; color: white; font-family: candybeans, sans-serif;">Cargando clima...</div>
+
+<audio id="clickSound" src="Sound/open.wav" preload="auto"></audio>
+
+<script>
+function actualizarReloj() {
+  const ahora = new Date();
+  let horas = ahora.getHours();
+  let minutos = ahora.getMinutes();
+  const ampm = horas >= 12 ? 'PM' : 'AM';
+  horas = horas % 12 || 12;
+  minutos = minutos < 10 ? '0' + minutos : minutos;
+  document.getElementById('reloj').textContent = `${horas}:${minutos} ${ampm}`;
+}
+setInterval(actualizarReloj, 1000);
+actualizarReloj();
+
+const contactoIcon = document.getElementById('contactoIcon');
+const correoImg = document.getElementById('correoImg');
+contactoIcon.addEventListener('click', () => {
+  correoImg.style.display = 'block';
+  reproducirSonido();
+});
+correoImg.addEventListener('click', () => {
+  correoImg.style.display = 'none';
+  reproducirSonido();
+});
+
+//Clima
+const apiKey = 'ee2e78cced3b9710fbdf4ad42ef47a9a';
+const ciudad = 'Ciudad de México';
+async function obtenerClima() {
+  try {
+    const respuesta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`);
+    const datos = await respuesta.json();
+    const temp = Math.round(datos.main.temp);
+    const descripcion = datos.weather[0].description;
+    const icono = datos.weather[0].icon;
+    document.getElementById('weather').innerHTML = `<img src="https://openweathermap.org/img/wn/${icono}.png" alt="${descripcion}" style="vertical-align: middle;"> ${temp}°C, ${descripcion}`;
+  } catch {
+    document.getElementById('weather').innerText = 'No se pudo cargar el clima';
+  }
+}
+obtenerClima();
+
+let imagenActual = 1;
+setInterval(() => {
+  imagenActual = imagenActual === 1 ? 2 : 1;
+  contactoIcon.src = `ImgPerfil/info${imagenActual}.png`;
+}, 1000);
+
+    // Sonido
+    const clickSound = document.getElementById('clickSound');
+    document.querySelectorAll('.sonido-click').forEach(el => {
+      el.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      });
+    });
+
+</script>
+
+</body>
+</html>
